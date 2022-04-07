@@ -201,42 +201,42 @@
 						Nuevo cliente
 					</div>
 					<div class="full-width panel-content">
-						<form>
+						<form action="Controlador">
 							<div class="mdl-grid">
 								<div class="mdl-cell mdl-cell--12-col">
 		                            <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; DATOS DEL CLIENTE</legend><br>
 		                        </div>
                                 <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*([0-9])?" id="identificacion">
+										<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*([0-9])?" id="identificacion" name="identificacion">
 										<label class="mdl-textfield__label" for="identificacion">Número de identificación</label>
 										<span class="mdl-textfield__error">Invalid DNI</span>
 									</div>
 								</div>
                                 <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="nombreCliente">
+										<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="nombreCliente" name="nombreCliente">
 										<label class="mdl-textfield__label" for="nombreCliente">Nombre</label>
 										<span class="mdl-textfield__error">Invalid name</span>
 									</div>
 								</div>
                                 <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="telefono">
+										<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="telefono" name="telefonoCliente">
 										<label class="mdl-textfield__label" for="telefono">Teléfono</label>
 										<span class="mdl-textfield__error">Invalid phone number</span>
 									</div>
 								</div>
                                 <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="email" id="email">
+										<input class="mdl-textfield__input" type="email" id="email" name="correoCliente">
 										<label class="mdl-textfield__label" for="email">E-mail</label>
 										<span class="mdl-textfield__error">Invalid E-mail</span>
 									</div>
 								</div>
 							</div>
                             <p class="text-center">
-								<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addFuncion">
+								<button type="submit" name="accion" value="registrarCliente" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addFuncion">
 									<i class="zmdi zmdi-plus"></i>
 								</button>
 								<div class="mdl-tooltip" for="btn-addCompany">Registrar cliente</div>
