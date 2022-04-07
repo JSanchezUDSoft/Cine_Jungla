@@ -8,7 +8,7 @@ public class Conexion {
     public Conexion(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/prueba1?useTimezone=true&serverTimezone=UTC","root","javier1234");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cine_jungla?useTimezone=true&serverTimezone=UTC","root","javier1234");
         } catch (Exception e) {
             System.err.println("Error"+e);
         }
