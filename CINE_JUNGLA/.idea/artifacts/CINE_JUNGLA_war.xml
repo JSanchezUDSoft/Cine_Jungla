@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="CINE_JUNGLA:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>false</exploded>
+        <module>CINE_JUNGLA</module>
+        <packaging>war</packaging>
+        <unpackNestedArchives>false</unpackNestedArchives>
+      </options>
+    </properties>
+    <root id="archive" name="CINE_JUNGLA-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="CINE_JUNGLA:war exploded" />
+    </root>
+  </artifact>
+</component>

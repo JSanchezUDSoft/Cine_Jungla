@@ -7,19 +7,19 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Registrar boletas</title>
-	<link rel="stylesheet" href="/./css/normalize.css" type="text/css">
-	<link rel="stylesheet" href="/./Vistas/css/sweetalert2.css" type="text/css">
-	<link rel="stylesheet" href="/./Vistas/css/material.min.css" type="text/css">
-	<link rel="stylesheet" href="/./Vistas/css/material-design-iconic-font.min.css" type="text/css">
-	<link rel="stylesheet" href="/./Vistas/css/jquery.mCustomScrollbar.css" type="text/css">
-	<link rel="stylesheet" href="/./Vistas/css/main.css" type="text/css">
-	<script src="ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="./js/jquery-1.11.2.min.js"><\/script>')</script>
-	<script src="js/material.min.js" ></script>
-	<script src="js/sweetalert2.min.js" ></script>
-	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
-	<script src="js/main.js" ></script>
+	<title>Registrar cliente</title>
+	<link rel="stylesheet" href="recursos/css/normalize.css">
+	<link rel="stylesheet" href="recursos/css/sweetalert2.css">
+	<link rel="stylesheet" href="recursos/css/material.min.css">
+	<link rel="stylesheet" href="recursos/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" href="recursos/css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" href="recursos/css/main.css">
+	<script src="recursos/js/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="recursos/js/jquery-1.11.2.min.js"><\/script>')</script>
+	<script src="recursos/js/material.min.js" ></script>
+	<script src="recursos/js/sweetalert2.min.js" ></script>
+	<script src="recursos/js/jquery.mCustomScrollbar.concat.min.js" ></script>
+	<script src="recursos/js/main.js" ></script>
 </head>
 <body>
 	<!-- Notifications area -->
@@ -32,7 +32,7 @@
 			</div>
 			<figure class="full-width navLateral-body-tittle-menu">
 				<div>
-					<img src="/assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+					<img src="recursos/css/img/avatar-male.png" alt="Avatar" class="img-responsive">
 				</div>
 				<figcaption>
 					<span>
@@ -85,7 +85,7 @@
 						<li class="text-condensedLight noLink" ><small>User Name</small></li>
 						<li class="noLink">
 							<figure>
-								<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+								<img src="recursos/css/img/avatar-male.png" alt="Avatar" class="img-responsive">
 							</figure>
 						</li>
 					</ul>
@@ -106,7 +106,7 @@
 		                            <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; ASIENTOS DISPONIBLES</legend><br>
 		                        </div>
                                 <div class="mdl-cell mdl-cell--12-col">
-                                <img src="assets/img/cine3.jpeg" class="cine">
+                                <img src="recursos/css/img/cine3.jpeg" class="cine">
                                 </div>
                                 <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-labelt">
@@ -123,7 +123,7 @@
                                 <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="nombreMultiplex">
-										<label class="mdl-textfield__label" for="NameCompany">Boletas seleccionadas</label>
+										<label class="mdl-textfield__label" for="nombreMultiplex">Boletas seleccionadas</label>
 										<span class="mdl-textfield__error">Invalid name</span>
 									</div>
 								</div>
