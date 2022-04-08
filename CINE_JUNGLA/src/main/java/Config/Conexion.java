@@ -4,6 +4,17 @@ import javax.swing.*;
 import java.sql.*;
 
 public class Conexion {
+
+    public static String identificacion;
+
+    public static String getIdentificacion() {
+        return identificacion;
+    }
+
+    public static void setIdentificacion(String identificacion) {
+        Conexion.identificacion = identificacion;
+    }
+
     Connection con;
     public Conexion(){
         try {
