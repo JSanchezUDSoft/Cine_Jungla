@@ -35,27 +35,16 @@
 			</div>
 			<figure class="full-width navLateral-body-tittle-menu">
 				<div>
-					<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+					<img src="recursos/css/img/avatar-male.png" alt="Avatar" class="img-responsive">
 				</div>
 				<figcaption>
 					<span>
-						Full Name Admin<br>
 						<small>Director</small>
 					</span>
 				</figcaption>
 			</figure>
 			<nav class="full-width">
 				<ul class="full-width list-unstyle menu-principal">
-					<li class="full-width">
-						<!--<a href="home.html" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-view-dashboard"></i>
-							</div>
-							<div class="navLateral-body-cr">
-								REGISTRAR FUNCION
-							</div>
-						</a>-->
-					<li class="full-width divider-menu-h"></li>
 					<li class="full-width">
 						<a href="#!" class="full-width btn-subMenu">
 							<div class="navLateral-body-cl">
@@ -68,7 +57,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="company.html" class="full-width">
+								<a href="Controlador?accion=registrarFuncion" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-tv-play"></i>
 									</div>
@@ -78,7 +67,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="providers.html" class="full-width">
+								<a href="Controlador?accion=consultarFuncionD" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-tv-list"></i>
 									</div>
@@ -102,7 +91,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="admin.html" class="full-width">
+								<a href="Controlador?accion=registrarPelicula" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-camera-roll"></i>
 									</div>
@@ -136,7 +125,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="admin.html" class="full-width">
+								<a href="Controlador?accion=registrarSala" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-cast"></i>
 									</div>
@@ -146,7 +135,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="client.html" class="full-width">
+								<a href="Controlador?accion=registrarMultiplex" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-star-circle"></i>
 									</div>
@@ -159,7 +148,7 @@
 					</li>
 					<li class="full-width divider-menu-h"></li>
 					<li class="full-width">
-						<a href="products.html" class="full-width">
+						<a href="Controlador?accion=registrarUsuario" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-accounts-alt"></i>
 							</div>
@@ -177,7 +166,7 @@
 		<!-- navBar -->
 		<div class="full-width navBar">
 			<div class="full-width navBar-options">
-				<i class="zmdi zmdi-swap btn-menu" id="btn-menu"></i>	
+				<i class="zmdi zmdi-swap btn-menu" id="btn-menu"></i>
 				<div class="mdl-tooltip" for="btn-menu">Hide / Show MENU</div>
 				<nav class="navBar-options-list">
 					<ul class="list-unstyle">
@@ -188,7 +177,7 @@
 						<li class="text-condensedLight noLink" ><small>User Name</small></li>
 						<li class="noLink">
 							<figure>
-								<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+								<img src="recursos/css/img/avatar-male.png" alt="Avatar" class="img-responsive">
 							</figure>
 						</li>
 					</ul>
