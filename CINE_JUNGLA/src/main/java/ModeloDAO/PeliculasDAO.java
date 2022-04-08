@@ -1,15 +1,15 @@
 package ModeloDAO;
 
 import Config.Conexion;
-import Interfaces.ClientesCRUD;
+import Interfaces.PeliculasCRUD;
 import Modelo.Clientes;
-import Modelo.Persona;
+import Modelo.Peliculas;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.List;
 
-public class ClientesDAO implements ClientesCRUD {
+public class PeliculasDAO implements PeliculasCRUD {
 
     Conexion cn = new Conexion();
     Connection con;
@@ -17,9 +17,10 @@ public class ClientesDAO implements ClientesCRUD {
     ResultSet rs;
     Clientes c = new Clientes();
 
+
     @Override
-    public boolean registrarCliente(Clientes cliente) {
-        String sql= "insert into clientes(k_identificacion, n_cliente, t_celular, o_correo, v_puntos) values('"+cliente.getIdentifiacion()+"','"+cliente.getNombre()+"','"+cliente.getCelular()+"','"+cliente.getCorreo()+"','"+cliente.getPuntos()+"')";
+    public boolean registrarPeliculas(Peliculas pelicula) {
+        String sql = "insert into peliculas(n_titulo, f_estreno, o_genero, o_duracion) values('"+pelicula.getTitulo()+"','"+pelicula.getEstreno()+"','"+pelicula.getGenero()+"','"+pelicula.getDuracion()+"')";
         try {
             con =cn.getConnection();
             ps = con.prepareStatement(sql);
@@ -31,4 +32,10 @@ public class ClientesDAO implements ClientesCRUD {
         return false;
     }
 
+
+
+    @Override
+    public boolean inhabilitarPeliculas(int idPelicula) {
+        return false;
+    }
 }

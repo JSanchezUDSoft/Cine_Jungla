@@ -1,11 +1,11 @@
 package Modelo;
 
 public class Clientes {
-    String identifiacion;
-    String nombre;
-    String celular;
-    String correo;
-    int puntos;
+    private String identifiacion;
+    private String nombre;
+    private String celular;
+    private String correo;
+    private int puntos;
 
 
     public Clientes() {

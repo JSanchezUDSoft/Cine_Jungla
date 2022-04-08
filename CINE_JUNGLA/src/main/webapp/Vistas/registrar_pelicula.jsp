@@ -8,19 +8,19 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Registrar película</title>
-	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="css/sweetalert2.css">
-	<link rel="stylesheet" href="css/material.min.css">
-	<link rel="stylesheet" href="css/material-design-iconic-font.min.css">
-	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
-	<link rel="stylesheet" href="css/main.css">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
-	<script src="js/material.min.js" ></script>
-	<script src="js/sweetalert2.min.js" ></script>
-	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
-	<script src="js/main.js" ></script>
+	<title>Registrar pelicula</title>
+	<link rel="stylesheet" href="recursos/css/normalize.css">
+	<link rel="stylesheet" href="recursos/css/sweetalert2.css">
+	<link rel="stylesheet" href="recursos/css/material.min.css">
+	<link rel="stylesheet" href="recursos/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" href="recursos/css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" href="recursos/css/main.css">
+	<script src="recursos/js/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="recursos/js/jquery-1.11.2.min.js"><\/script>')</script>
+	<script src="recursos/js/material.min.js" ></script>
+	<script src="recursos/js/sweetalert2.min.js" ></script>
+	<script src="recursos/js/jquery.mCustomScrollbar.concat.min.js" ></script>
+	<script src="recursos/js/main.js" ></script>
 </head>
 <body>
 	<!-- Notifications area -->
@@ -201,48 +201,48 @@
 						Nueva pelicula
 					</div>
 					<div class="full-width panel-content">
-						<form>
+						<form action="Controlador">
 							<div class="mdl-grid">
 								<div class="mdl-cell mdl-cell--12-col">
 		                            <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; DATOS DE LA PELÍCULA</legend><br>
 		                        </div>
                                 <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="titulo">
-										<label class="mdl-textfield__label" for="NameCompany">Título</label>
+										<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="titulo" name="titulo">
+										<label class="mdl-textfield__label" for="titulo">Título</label>
 										<span class="mdl-textfield__error">Invalid name</span>
 									</div>
 								</div>
 								<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<select name="" id="genero" class="mdl-textfield__input">
+										<select name="genero" id="genero" class="mdl-textfield__input">
 											<option value="">Seleccione el género</option>
-                                            <option value="">Infantil</option>
-                                            <option value="">Terror</option>
-                                            <option value="">Comedia</option>
-                                            <option value="">Aventura</option>
-                                            <option value="">Ciencia Ficción</option>
-                                            <option value="">Fantasia</option>
+                                            <option name="genero" value="infantil">Infantil</option>
+                                            <option name="genero" value="terror">Terror</option>
+                                            <option name="genero" value="comedia">Comedia</option>
+                                            <option name="genero" value="aventura">Aventura</option>
+                                            <option name="genero" value="ciencia ficcion">Ciencia Ficción</option>
+                                            <option name="genero" value="fantasia">Fantasia</option>
 										</select>
 									</div>
 								</div>
                                 <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="number" min="1900" max="2099" step="1" id="anoEstreno"/>
-										<label class="mdl-textfield__label" for="NameCompany">Año de estreno</label>
+										<input class="mdl-textfield__input" type="number" min="1900" max="2099" step="1" id="anoEstreno" name="estreno"/>
+										<label class="mdl-textfield__label" for="anoestreno">Año de estreno</label>
 										<span class="mdl-textfield__error">Año incorrecto</span>
 									</div>
 								</div>
                                 <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="time" id="duracion" step='1' min="00:00:00" max="20:00:00"/>
-										<label class="mdl-textfield__label" for="NameCompany">Duración</label>
+										<input class="mdl-textfield__input" type="time" id="duracion" step='1' min="00:00:00" max="20:00:00" name="duracion"/>
+										<label class="mdl-textfield__label" for="duracion">Duración</label>
 										<span class="mdl-textfield__error">Invalid name</span>
 									</div>
 								</div>
 							</div>
 							<p class="text-center">
-								<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addFuncion">
+								<button type="submit" name="accion" value="registrarPelicula" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addFuncion">
 									<i class="zmdi zmdi-plus"></i>
 								</button>
 								<div class="mdl-tooltip" for="btn-addCompany">Registrar película</div>
