@@ -1,4 +1,8 @@
-<!-- 
+<%@ page import="Config.Conexion" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.ResultSet" %>
+<!--
 * Copyright 2018 Carlos Eduardo Alfaro Orellana
   https://www.youtube.com/c/CarlosAlfaro007
 
@@ -9,19 +13,19 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Registrar película</title>
-	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="css/sweetalert2.css">
-	<link rel="stylesheet" href="css/material.min.css">
-	<link rel="stylesheet" href="css/material-design-iconic-font.min.css">
-	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
-	<link rel="stylesheet" href="css/main.css">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
-	<script src="js/material.min.js" ></script>
-	<script src="js/sweetalert2.min.js" ></script>
-	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
-	<script src="js/main.js" ></script>
+	<title>Registrar cliente</title>
+	<link rel="stylesheet" href="recursos/css/normalize.css">
+	<link rel="stylesheet" href="recursos/css/sweetalert2.css">
+	<link rel="stylesheet" href="recursos/css/material.min.css">
+	<link rel="stylesheet" href="recursos/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" href="recursos/css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" href="recursos/css/main.css">
+	<script src="recursos/js/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="recursos/js/jquery-1.11.2.min.js"><\/script>')</script>
+	<script src="recursos/js/material.min.js" ></script>
+	<script src="recursos/js/sweetalert2.min.js" ></script>
+	<script src="recursos/js/jquery.mCustomScrollbar.concat.min.js" ></script>
+	<script src="recursos/js/main.js" ></script>
 </head>
 <body>
 	<!-- Notifications area -->
@@ -202,80 +206,100 @@
 						Nuevo empleado
 					</div>
 					<div class="full-width panel-content">
-						<form>
+						<form action="Controlador">
 							<div class="mdl-grid">
 								<div class="mdl-cell mdl-cell--12-col">
 		                            <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; DATOS DEL EMPLEADO</legend><br>
 		                        </div>
                                 <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*([0-9])?" id="identificacion">
-										<label class="mdl-textfield__label" for="DNICompany">Número de identificación</label>
+										<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*([0-9])?" id="identificacion" name="identificacion">
+										<label class="mdl-textfield__label" for="identificacion">Número de identificación</label>
 										<span class="mdl-textfield__error">Invalid DNI</span>
 									</div>
 								</div>
                                 <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="nombreEmpleado">
-										<label class="mdl-textfield__label" for="NameCompany">Nombre</label>
+										<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="nombreEmpleado" name="nombreEmpleado">
+										<label class="mdl-textfield__label" for="nombreEmpleado">Nombre</label>
 										<span class="mdl-textfield__error">Invalid name</span>
 									</div>
 								</div>
                                 <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="telefono">
-										<label class="mdl-textfield__label" for="phoneCompany">Teléfono</label>
+										<input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="telefono" name="telefono">
+										<label class="mdl-textfield__label" for="telefono">Teléfono</label>
 										<span class="mdl-textfield__error">Invalid phone number</span>
 									</div>
 								</div>
                                 <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="number" id="salario"/>
-										<label class="mdl-textfield__label" for="NameCompany">Salario</label>
+										<input class="mdl-textfield__input" type="number" id="salario" name="salario"/>
+										<label class="mdl-textfield__label" for="salario">Salario</label>
 										<span class="mdl-textfield__error">Salario incorrecto</span>
 									</div>
 								</div>
                                 <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<select name="" id="idMultiplex" class="mdl-textfield__input">
-											<option value="">Seleccione el multiplex</option>
+										<select id="idMultiplex" name="idMultiplex" class="mdl-textfield__input">
+											<option value="" selected>Seleccione el multiplex</option>
+											<%
+												Conexion cn = new Conexion();
+												Connection con;
+												PreparedStatement ps;
+												ResultSet rs;
+
+												String sql = "select k_multiplex, n_multiplex from multiplex";
+												try {
+													con = cn.getConnection();
+													ps = con.prepareStatement(sql);
+													rs = ps.executeQuery();
+											
+													while (rs.next()) {
+														out.println("<OPTION VALUE=\""+ rs.getString(1) +"\">"+ rs.getString(2) +"</OPTION>");
+													}
+
+												}catch (Exception e){
+													System.out.println(e);
+												}
+											%>
 										</select>
 									</div>
 								</div>
 								<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<select name="" id="rol" class="mdl-textfield__input">
+										<select name="rol" class="mdl-textfield__input">
 											<option value="">Seleccione el rol</option>
-                                            <option value="">Cajero</option>
-                                            <option value="">Director</option>
+                                            <option value="c">Cajero</option>
+                                            <option value="d">Director</option>
 										</select>
 									</div>
 								</div>
                                 <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<label class="" for="NameCompany">Seleccione la fecha de contratación</label>
-										<input class="mdl-textfield__input" type="date" id="fechaContrato">
+										<label class="" for="fechaContrato">Seleccione la fecha de contratación</label>
+										<input class="mdl-textfield__input" type="date" id="fechaContrato" name="fechaContrato">
 										<span class="mdl-textfield__error">Invalid name</span>
 									</div>
 								</div>
                                 <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <select name="" id="rol" class="mdl-textfield__input">
+                                        <select name="cargo" id=cargo class="mdl-textfield__input">
                                             <option value="">Seleccione el cargo</option>
-                                            <option value="">Director</option>
-                                            <option value="">Cajero</option>
-                                            <option value="">Despachador de comida</option>
-                                            <option value="">Encargado de sala</option>
-                                            <option value="">Aseador</option>
+                                            <option value="d">Director</option>
+                                            <option value="c">Cajero</option>
+                                            <option value="r">Despachador de comida</option>
+                                            <option value="e">Encargado de sala</option>
+                                            <option value="a">Aseador</option>
                                         </select>
                                     </div>
                                 </div>
 							</div>
                             <p class="text-center">
-								<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addFuncion">
+								<button type="submit" name="accion" value="registrarU" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addFuncion">
 									<i class="zmdi zmdi-plus"></i>
 								</button>
-								<div class="mdl-tooltip" for="btn-addCompany">Registrar empleado</div>
+								<div class="mdl-tooltip" for="btn-addCompany">Registrar Usuario</div>
 							</p>
 						</form>
 					</div>
