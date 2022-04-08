@@ -1,27 +1,27 @@
-<!-- 
-* Copyright 2018 Carlos Eduardo Alfaro Orellana
-  https://www.youtube.com/c/CarlosAlfaro007
+<%@ page import="Config.Conexion" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.ResultSet" %>
 
--->
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Registrar Función</title>
-	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="css/sweetalert2.css">
-	<link rel="stylesheet" href="css/material.min.css">
-	<link rel="stylesheet" href="css/material-design-iconic-font.min.css">
-	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
-	<link rel="stylesheet" href="css/main.css">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
-	<script src="js/material.min.js" ></script>
-	<script src="js/sweetalert2.min.js" ></script>
-	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
-	<script src="js/main.js" ></script>
+	<title>Registrar Funcion</title>
+	<link rel="stylesheet" href="recursos/css/normalize.css">
+	<link rel="stylesheet" href="recursos/css/sweetalert2.css">
+	<link rel="stylesheet" href="recursos/css/material.min.css">
+	<link rel="stylesheet" href="recursos/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" href="recursos/css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" href="recursos/css/main.css">
+	<script src="recursos/js/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="recursos/js/jquery-1.11.2.min.js"><\/script>')</script>
+	<script src="recursos/js/material.min.js" ></script>
+	<script src="recursos/js/sweetalert2.min.js" ></script>
+	<script src="recursos/js/jquery.mCustomScrollbar.concat.min.js" ></script>
+	<script src="recursos/js/main.js" ></script>
 </head>
 <body>
 	<!-- navLateral -->
@@ -191,42 +191,82 @@
 						Nueva función
 					</div>
 					<div class="full-width panel-content">
-						<form>
+						<form action="Controlador">
 							<div class="mdl-grid">
 								<div class="mdl-cell mdl-cell--12-col">
 		                            <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; DATOS DE LA FUNCIÓN</legend><br>
 		                        </div>
 								<div class="mdl-cell mdl-cell--12-col">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<select name="" id="idPelicula" class="mdl-textfield__input">
+										<select name="idPelicula" id="idPelicula" class="mdl-textfield__input">
 											<option value="">Seleccione la película</option>
+											<%
+												Conexion cn = new Conexion();
+												Connection con;
+												PreparedStatement ps;
+												ResultSet rs;
+
+												String sql = "select k_pelicula, n_titulo from peliculas";
+												try {
+													con = cn.getConnection();
+													ps = con.prepareStatement(sql);
+													rs = ps.executeQuery();
+
+													while (rs.next()) {
+														out.println("<OPTION VALUE=\""+ rs.getString(1) +"\">"+ rs.getString(2) +"</OPTION>");
+													}
+
+												}catch (Exception e){
+													System.out.println(e);
+												}
+											%>
 										</select>
 									</div>
 								</div>
 								<div class="mdl-cell mdl-cell--12-col">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<select name="" id="idSala" class="mdl-textfield__input">
+										<select name="idSala" id="idSala" class="mdl-textfield__input">
 											<option value="">Seleccione la sala</option>
+											<%
+												Conexion cn2 = new Conexion();
+												Connection con2;
+												PreparedStatement ps2;
+												ResultSet rs2;
+
+												String sql2 = "select k_sala, n_sala from salas";
+												try {
+													con2 = cn2.getConnection();
+													ps2 = con2.prepareStatement(sql2);
+													rs2 = ps2.executeQuery();
+
+													while (rs2.next()) {
+														out.println("<OPTION VALUE=\""+ rs2.getString(1) +"\">"+ rs2.getString(2) +"</OPTION>");
+													}
+
+												}catch (Exception e){
+													System.out.println(e);
+												}
+											%>
 										</select>
 									</div>
 								</div>
 								<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<label class="" for="NameCompany">Seleccione la fecha y hora de inicio</label>
-										<input class="mdl-textfield__input" type="datetime-local" id="fechaHoraInicio">
+										<label class="" for="fechaHoraInicio">Seleccione la fecha y hora de inicio</label>
+										<input class="mdl-textfield__input" type="datetime-local" id="fechaHoraInicio" name="fechaHoraInicio">
 										<span class="mdl-textfield__error">Invalid name</span>
 									</div>
 								</div>
 								<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<label class="" for="NameCompany">Seleccione la fecha y hora de fin</label>
-										<input class="mdl-textfield__input" type="datetime-local" id="fechaHoraFin">
+										<label class="" for="fechaHoraFin">Seleccione la fecha y hora de fin</label>
+										<input class="mdl-textfield__input" type="datetime-local" id="fechaHoraFin" name="fechaHoraFin">
 										<span class="mdl-textfield__error">Invalid name</span>
 									</div>
 								</div>
 							</div>
 							<p class="text-center">
-								<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addFuncion">
+								<button type="submit" name="accion" value="registrarFuncion" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addFuncion">
 									<i class="zmdi zmdi-plus"></i>
 								</button>
 								<div class="mdl-tooltip" for="btn-addCompany">Registrar función</div>
